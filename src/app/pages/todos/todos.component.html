@@ -1,0 +1,28 @@
+
+
+
+<h2>Todos</h2>
+
+<a  routerLink="/todo-add">Add Todo</a>
+<table>
+<thead>
+    <tr>
+        <th>Id</th>
+        <th>Content</th>
+        <th>Create</th>
+        <th>ICompleted</th>
+    </tr>
+</thead>
+    <tbody>
+<tr *ngFor="let todo of todos">
+<td>{{todo.id}}</td>
+<td>{{todo.content}}</td>
+<td>{{todo.created}}</td>
+<td>{{todo.isCompleted}}</td>
+</tr>
+
+    </tbody>
+
+
+
+</table>
