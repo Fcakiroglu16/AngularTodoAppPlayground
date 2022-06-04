@@ -43,6 +43,27 @@ export class TodoService {
       .put<Response>(`${this.baseUrl}/api/todos/${todo.id}`, todo, {
         observe: 'response',
       })
-      .pipe(map((response) => response.status === 204));
+      .pipe(
+        map((response) => {
+          console.table(response);
+          return response.status === 204;
+        })
+      );
+  }
+
+  isCompleted(id: number): Observable<boolean> {
+    return this.http
+      .put<Response>(
+        `${this.baseUrl}/api/todos/iscompleted/${id}`,
+        {},
+        {
+          observe: 'response',
+        }
+      )
+      .pipe(
+        map((response) => {
+          return response.status === 204;
+        })
+      );
   }
 }

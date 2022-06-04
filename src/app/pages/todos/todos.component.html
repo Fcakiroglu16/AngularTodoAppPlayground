@@ -9,19 +9,23 @@
 <table class="table">
 <thead>
     <tr>
+        <th>Completed</th>
         <th>Id</th>
         <th>Content</th>
         <th>Create</th>
-        <th>ICompleted</th>
+      
+        
         <th>Actions</th>
+        
     </tr>
 </thead>
     <tbody>
-<tr *ngFor="let todo of todos">
+<tr *ngFor="let todo of todos"   [ngClass]="{'table-success':todo.isCompleted,'table-danger':!todo.isCompleted}">
+    <td>   <input class="form-check-input" type="checkbox" [checked]="todo.isCompleted"  (change)="isCompleted(todo.id)"> </td>
 <td>{{todo.id}}</td>
-<td>{{todo.content}}</td>
+<td> <span [ngClass]="{'completed':todo.isCompleted}"> {{todo.content}}</span>  </td>
 <td>{{todo.created | date:'short'}}</td>
-<td>{{todo.isCompleted}}</td>
+
 <td><button (click)="delete(todo.id)" class="btn btn-danger">Delete</button>
 <a  class="btn btn-success mx-2" [routerLink]="['/todo-update',todo.id]">Update</a>
 </td>

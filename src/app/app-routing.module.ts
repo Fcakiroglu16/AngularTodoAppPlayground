@@ -6,6 +6,10 @@ import { TodosComponent } from './pages/todos/todos.component';
 
 const routes: Routes = [
   {
+    path: '',
+    component: TodosComponent,
+  },
+  {
     path: 'todos',
     component: TodosComponent,
   },

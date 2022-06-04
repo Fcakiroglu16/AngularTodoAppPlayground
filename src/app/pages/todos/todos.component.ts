@@ -13,8 +13,6 @@ export class TodosComponent implements OnInit {
   todos: Todo[] = [];
   ngOnInit(): void {
     this.load();
-
- 
   }
 
   load() {
@@ -40,6 +38,14 @@ export class TodosComponent implements OnInit {
           }
         });
       }
+    });
+  }
+
+  isCompleted(id: number) {
+    this.todoService.isCompleted(id).subscribe((x) => {
+      let index = this.todos.findIndex((x) => x.id === id);
+
+      this.todos[index].isCompleted = !this.todos[index].isCompleted;
     });
   }
 }
