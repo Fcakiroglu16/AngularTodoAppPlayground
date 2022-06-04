@@ -23,7 +23,7 @@
 <td>{{todo.created | date:'short'}}</td>
 <td>{{todo.isCompleted}}</td>
 <td><button (click)="delete(todo.id)" class="btn btn-danger">Delete</button>
-<a  class="btn btn-success" [routerLink]="['/todo-update',todo.id]">Update</a>
+<a  class="btn btn-success mx-2" [routerLink]="['/todo-update',todo.id]">Update</a>
 </td>
 </tr>
 

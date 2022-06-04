@@ -13,6 +13,8 @@ export class TodosComponent implements OnInit {
   todos: Todo[] = [];
   ngOnInit(): void {
     this.load();
+
+ 
   }
 
   load() {
