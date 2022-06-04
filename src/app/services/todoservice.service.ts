@@ -2,6 +2,8 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Todo } from '../models/todo';
+import { TodoSave } from '../models/todo-save';
+import { TodoUpdate } from '../models/todo-update';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +22,7 @@ export class TodoService {
     return this.http.get<Todo>(`${this.baseUrl}/api/todos/${id}`);
   }
 
-  create(todo: Todo): Observable<boolean> {
+  create(todo: TodoSave): Observable<boolean> {
     return this.http
       .post<Response>(`${this.baseUrl}/api/todos`, todo, {
         observe: 'response',
@@ -36,7 +38,7 @@ export class TodoService {
       .pipe(map((response) => response.status === 204));
   }
 
-  update(todo: Todo): Observable<boolean> {
+  update(todo: TodoUpdate): Observable<boolean> {
     return this.http
       .put<Response>(`${this.baseUrl}/api/todos/${todo.id}`, todo, {
         observe: 'response',

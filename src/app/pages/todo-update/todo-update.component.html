@@ -4,8 +4,8 @@
 
 
 <div class="col-md-8 offset-md-2">
-    <h2>Todo Save Form</h2>
-<form  [formGroup]="todoForm" (ngSubmit)="save()">
+    <h2>Todo Update Form</h2>
+<form  [formGroup]="todoForm" (ngSubmit)="update()">
 
     
       <div class="mb-3">
@@ -13,7 +13,7 @@
         <textarea class="form-control"  rows="3" formControlName="content"></textarea>
       </div>
 <div>
-    <button class="btn btn-primary">Save</button>
+    <button class="btn btn-primary">Update</button>
 </div>
 </form>
 
@@ -23,8 +23,4 @@
 </div>
     </div>
 </div>
-
-
-
-
 

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TodoAddComponent } from './pages/todo-add/todo-add.component';
+import { TodoUpdateComponent } from './pages/todo-update/todo-update.component';
 import { TodosComponent } from './pages/todos/todos.component';
 
 const routes: Routes = [
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: 'todo-add',
     component: TodoAddComponent,
+  },
+  {
+    path: 'todo-update/:id',
+    component: TodoUpdateComponent,
   },
 ];
 

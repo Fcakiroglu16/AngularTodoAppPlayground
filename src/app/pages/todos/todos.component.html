@@ -1,24 +1,30 @@
 
 
 
-<h2>Todos</h2>
-
-<a  routerLink="/todo-add">Add Todo</a>
-<table>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2>Todos</h2>
+            <a class="btn btn-primary"  routerLink="/todo-add">Add Todo</a>
+<table class="table">
 <thead>
     <tr>
         <th>Id</th>
         <th>Content</th>
         <th>Create</th>
         <th>ICompleted</th>
+        <th>Actions</th>
     </tr>
 </thead>
     <tbody>
 <tr *ngFor="let todo of todos">
 <td>{{todo.id}}</td>
 <td>{{todo.content}}</td>
-<td>{{todo.created}}</td>
+<td>{{todo.created | date:'short'}}</td>
 <td>{{todo.isCompleted}}</td>
+<td><button (click)="delete(todo.id)" class="btn btn-danger">Delete</button>
+<a  class="btn btn-success" [routerLink]="['/todo-update',todo.id]">Update</a>
+</td>
 </tr>
 
     </tbody>
@@ -26,3 +32,11 @@
 
 
 </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
